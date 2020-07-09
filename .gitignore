@@ -1,4 +1,4 @@
 node_modules
 *.md
 *ormconfig.json
-.env
+!README.md
