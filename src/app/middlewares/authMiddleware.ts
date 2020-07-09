@@ -1,6 +1,11 @@
 import { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
 
+interface TokenPlayload {
+  id: string;
+  iat: number;
+  exp: number;
+}
 
 export default function authMiddleware(request: Request, response: Response, next: NextFunction) {
 
@@ -8,7 +13,6 @@ export default function authMiddleware(request: Request, response: Response, nex
   const { authorization } = request.headers;
 
   if (!authorization) {
-    console.log('erro 1');
 
     return response.sendStatus(401);
 
@@ -19,10 +23,13 @@ export default function authMiddleware(request: Request, response: Response, nex
   try {
 
     const data = jwt.verify(token, 'default');
-    console.log(data)
+    const { id } = data as TokenPlayload;
+
+    request.userId = id;
+
+    return next();
 
   } catch {
-    console.log('erro 2');
     return response.sendStatus(401);
 
   }
