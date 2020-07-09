@@ -5,14 +5,16 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "npx nodemon --exec ts-node src/index.ts",
+    "dev": "npx nodemon --require dotenv/config --exec ts-node src/index.ts",
     "typeorm": "npx ts-node ./node_modules/typeorm/cli.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/dotenv": "^8.2.0",
     "@types/express": "^4.17.7",
+    "@types/jsonwebtoken": "^8.5.0",
     "nodemon": "^2.0.4",
     "ts-node": "^8.10.2",
     "typescript": "^3.9.6"
@@ -20,7 +22,9 @@
   "dependencies": {
     "@types/bcryptjs": "^2.4.2",
     "bcryptjs": "^2.4.3",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
     "pg": "^8.2.2",
     "reflect-metadata": "^0.1.13",
     "typeorm": "^0.2.25"

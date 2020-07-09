@@ -1,5 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, Column, BeforeInsert, BeforeUpdate } from 'typeorm';
-import bcryptjs from 'bcryptjs';
+import bcrypt from 'bcryptjs';
 @Entity('users')
 class User {
 
@@ -15,7 +15,7 @@ class User {
   @BeforeInsert()
   @BeforeUpdate()
   hashPassword() {
-    this.password = bcryptjs.hashSync(this.password, 10)
+    this.password = bcrypt.hashSync(this.password, 10)
   }
 }
 
