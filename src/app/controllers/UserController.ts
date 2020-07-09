@@ -9,7 +9,14 @@ class UserController {
 
     const user = await repository.find()
 
-    return response.json(user);
+    const getUser = user.map(users => {
+      return {
+        id: users.id,
+        email: users.email
+      }
+    })
+
+    return response.json(getUser);
 
   }
   async  create(request: Request, response: Response) {
@@ -29,7 +36,7 @@ class UserController {
 
     await repository.save(user);
 
-    return response.json(user)
+    return response.json({ id: user.id, email: user.email })
   }
 
 }
