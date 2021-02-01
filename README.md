@@ -65,7 +65,7 @@ Criando container Postegres.
   docker run \
   --name postgres \
   -e POSTGRES_USER=dev \
-  -e POSTGRES_PASSWORD=3n5df3k9 \
+  -e POSTGRES_PASSWORD=senha \
   -e POSTGRES_DB=dev \
   -p 5432:5432 \
   -d postgres \
