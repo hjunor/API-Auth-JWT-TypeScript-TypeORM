@@ -33,7 +33,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
   "host": "localhost",
   "port": 5432,
   "username": "dev",
-  "password": "3n5df3k9",
+  "password": "senha",
   "database": "dev",
   "logging": false,
   "entities": [
